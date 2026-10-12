@@ -1,29 +1,14 @@
 import { useEffect, useState } from "react";
 import { BottomDock, DesktopNav, navItems } from "@/components/portfolio/LiquidNav";
 import { Button } from "@/components/ui/button";
-import { Sun, Moon } from "lucide-react";
 
 export function Nav() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("portfolio-theme");
-      if (saved) return saved === "dark";
-      return window.matchMedia("(prefers-color-scheme: dark)").matches || true;
-    }
-    return true;
-  });
 
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("portfolio-theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("portfolio-theme", "light");
-    }
-  }, [isDark]);
+    document.documentElement.classList.add("dark");
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -65,10 +50,6 @@ export function Nav() {
     }
   };
 
-  const toggleTheme = () => {
-    setIsDark((prev) => !prev);
-  };
-
   return (
     <>
       <header
@@ -84,16 +65,6 @@ export function Nav() {
           <DesktopNav activeId={active} onSelect={handleSelectSection} />
 
           <div className="flex items-center gap-3">
-            {/* Dark / Light Theme Toggle Button */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle Light and Dark mode"
-              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-              className="grid size-9 place-items-center rounded-xl border border-border bg-card text-foreground transition-all duration-200 hover:scale-105 active:scale-95 hover:border-primary"
-            >
-              {isDark ? <Sun className="size-4 text-amber-400 transition-transform hover:rotate-45" /> : <Moon className="size-4 text-indigo-500 transition-transform hover:-rotate-12" />}
-            </button>
-
             <Button
               type="button"
               className="h-9 px-6 text-[14px]"

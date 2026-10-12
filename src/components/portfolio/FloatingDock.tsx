@@ -1,4 +1,3 @@
-import resumeAsset from "@/assets/resume.pdf.asset.json";
 import { FolderGit2, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -13,7 +12,7 @@ export function FloatingDock() {
         <a href="#contact">Contact Me</a>
       </Button>
       <Button asChild variant="outline">
-        <a href={resumeAsset.url} download="Abhishek_Mewada_Resume.pdf">
+        <a href="/Abhishek_Mewada_Resume.pdf" download="Abhishek_Mewada_Resume.pdf" target="_blank" rel="noopener noreferrer">
           <FileText /> Download Resume
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]" aria-hidden="true">↗</span>
         </a>
