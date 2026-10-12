@@ -1,0 +1,172 @@
+import { useEffect, type FC } from "react";
+import { X, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export type Project = {
+  title: string;
+  tag: string;
+  url: string;
+  problem: string;
+  features: string[];
+  tech: string[];
+  link: string;
+  liveUrl?: string;
+  badge?: string;
+  image?: string;
+  gradient: string;
+  role?: string;
+};
+
+interface ProjectModalProps {
+  project: Project | null;
+  onClose: () => void;
+}
+
+export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
+  useEffect(() => {
+    if (!project) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalStyle;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [project, onClose]);
+
+  if (!project) return null;
+
+  const roleText =
+    project.role ||
+    "Lead Developer — End-to-end architecture, responsive UI design, frontend development, and production deployment.";
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-project-title"
+    >
+      <div
+        className="fixed inset-0 bg-black/70"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 flex w-full max-w-3xl max-h-[90vh] flex-col overflow-hidden rounded-[14px] border border-[#232329] bg-[#101014] text-[#FAFAFA]">
+        <div className="flex items-center justify-between border-b border-[#232329] px-5 py-4">
+          <span className="truncate text-[13px] text-[#9CA3AF]">{project.url}</span>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            onClick={onClose}
+            aria-label="Close project view"
+            className="size-10"
+          >
+            <X className="size-4" />
+          </Button>
+        </div>
+
+        <div className="flex-1 space-y-6 overflow-y-auto p-6">
+          {project.image ? (
+            <div className="relative aspect-16/10 overflow-hidden rounded-[10px] bg-[#09090B]">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-full w-full object-cover object-top"
+                loading="lazy"
+                width="640"
+                height="400"
+              />
+              {project.badge && (
+                <span className="absolute right-3 bottom-3 rounded-[6px] border border-[#2E2E35] bg-[#18181B] px-2 py-1 text-[12px] font-medium text-[#9CA3AF]">
+                  {project.badge}
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="grid aspect-16/10 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] p-6 text-center">
+              <span className="text-[15px] font-semibold text-[#FAFAFA]">{project.tag}</span>
+            </div>
+          )}
+
+          <div className="space-y-2">
+            <span className="text-[12px] font-medium text-[#9CA3AF]">{project.tag}</span>
+            <h2 id="modal-project-title" className="text-[18px] font-semibold tracking-[-0.02em] text-[#FAFAFA]">
+              {project.title}
+            </h2>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Project Overview</h3>
+            <p className="text-[15px] leading-[1.65] text-[#9CA3AF]">{project.problem}</p>
+          </div>
+
+          <div className="space-y-3">
+            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Key Highlights &amp; Features</h3>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {project.features.map((feature, idx) => (
+                <li
+                  key={idx}
+                  className="rounded-[14px] border border-[#232329] bg-[#101014] p-4 text-[15px] leading-[1.65] text-[#9CA3AF]"
+                >
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-[13px] font-medium text-[#FAFAFA]">My Role &amp; Contribution</h3>
+            <p className="text-[15px] leading-[1.65] text-[#9CA3AF]">{roleText}</p>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Technologies Used</h3>
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((tech) => (
+                <span key={tech} className="tech-badge">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#232329] px-6 py-4">
+          <div className="flex flex-wrap items-center gap-3">
+            {project.liveUrl && (
+              <Button asChild variant="outline">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  Live Demo
+                  <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]" aria-hidden="true">↗</span>
+                </a>
+              </Button>
+            )}
+            {project.link && project.link.includes("github") && (
+              <Button asChild variant="outline">
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <Github /> View Source
+                  <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]" aria-hidden="true">↗</span>
+                </a>
+              </Button>
+            )}
+          </div>
+
+          <Button variant="ghost" onClick={onClose}>
+            Close
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
