@@ -119,7 +119,7 @@ export const GlassmorphismProfileCard: React.FC<GlassmorphismProfileCardProps> =
         <ActionButton action={actionButton} />
       </div>
       
-      <div className="absolute inset-0 rounded-3xl -z-10 transition-all duration-500 ease-out blur-2xl opacity-30 bg-gradient-to-r from-indigo-500/50 to-purple-500/50" />
+      <div className="absolute inset-0 rounded-3xl -z-10 transition-all duration-500 ease-out blur-2xl opacity-30 bg-gradient-to-r from-primary/40 to-accent/30" />
     </div>
   );
 };

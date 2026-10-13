@@ -61,9 +61,9 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 flex w-full max-w-3xl max-h-[90vh] flex-col overflow-hidden rounded-[14px] border border-[#232329] bg-[#101014] text-[#FAFAFA]">
-        <div className="flex items-center justify-between border-b border-[#232329] px-5 py-4">
-          <span className="truncate text-[13px] text-[#9CA3AF]">{project.url}</span>
+      <div className="relative z-10 flex w-full max-w-3xl max-h-[90vh] flex-col overflow-hidden rounded-[14px] border border-border bg-card text-foreground shadow-2xl">
+        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+          <span className="truncate text-[13px] text-muted-foreground">{project.url}</span>
           <Button
             type="button"
             variant="outline"
@@ -78,7 +78,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
 
         <div className="flex-1 space-y-6 overflow-y-auto p-6">
           {project.image ? (
-            <div className="relative aspect-16/10 overflow-hidden rounded-[10px] bg-[#09090B]">
+            <div className="relative aspect-16/10 overflow-hidden rounded-[10px] bg-secondary">
               <img
                 src={project.image}
                 alt={project.title}
@@ -88,36 +88,36 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 height="400"
               />
               {project.badge && (
-                <span className="absolute right-3 bottom-3 rounded-[6px] border border-[#2E2E35] bg-[#18181B] px-2 py-1 text-[12px] font-medium text-[#9CA3AF]">
+                <span className="absolute right-3 bottom-3 rounded-[6px] border border-border bg-card/90 backdrop-blur-xs px-2 py-1 text-[12px] font-medium text-foreground shadow-sm">
                   {project.badge}
                 </span>
               )}
             </div>
           ) : (
-            <div className="grid aspect-16/10 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] p-6 text-center">
-              <span className="text-[15px] font-semibold text-[#FAFAFA]">{project.tag}</span>
+            <div className="grid aspect-16/10 place-items-center rounded-[10px] border border-border bg-secondary p-6 text-center">
+              <span className="text-[15px] font-semibold text-foreground">{project.tag}</span>
             </div>
           )}
 
           <div className="space-y-2">
-            <span className="text-[12px] font-medium text-[#9CA3AF]">{project.tag}</span>
-            <h2 id="modal-project-title" className="text-[18px] font-semibold tracking-[-0.02em] text-[#FAFAFA]">
+            <span className="text-[12px] font-medium text-muted-foreground">{project.tag}</span>
+            <h2 id="modal-project-title" className="text-[18px] font-semibold tracking-[-0.02em] text-foreground">
               {project.title}
             </h2>
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Project Overview</h3>
-            <p className="text-[15px] leading-[1.65] text-[#9CA3AF]">{project.problem}</p>
+            <h3 className="text-[13px] font-medium text-foreground">Project Overview</h3>
+            <p className="text-[15px] leading-[1.65] text-muted-foreground">{project.problem}</p>
           </div>
 
           <div className="space-y-3">
-            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Key Highlights &amp; Features</h3>
+            <h3 className="text-[13px] font-medium text-foreground">Key Highlights &amp; Features</h3>
             <ul className="grid gap-3 sm:grid-cols-2">
               {project.features.map((feature, idx) => (
                 <li
                   key={idx}
-                  className="rounded-[14px] border border-[#232329] bg-[#101014] p-4 text-[15px] leading-[1.65] text-[#9CA3AF]"
+                  className="rounded-[14px] border border-border bg-secondary/50 p-4 text-[15px] leading-[1.65] text-muted-foreground"
                 >
                   {feature}
                 </li>
@@ -126,12 +126,12 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-[13px] font-medium text-[#FAFAFA]">My Role &amp; Contribution</h3>
-            <p className="text-[15px] leading-[1.65] text-[#9CA3AF]">{roleText}</p>
+            <h3 className="text-[13px] font-medium text-foreground">My Role &amp; Contribution</h3>
+            <p className="text-[15px] leading-[1.65] text-muted-foreground">{roleText}</p>
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-[13px] font-medium text-[#FAFAFA]">Technologies Used</h3>
+            <h3 className="text-[13px] font-medium text-foreground">Technologies Used</h3>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((tech) => (
                 <span key={tech} className="tech-badge">
@@ -142,7 +142,7 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#232329] px-6 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border px-6 py-4">
           <div className="flex flex-wrap items-center gap-3">
             {project.liveUrl && (
               <Button asChild variant="outline">

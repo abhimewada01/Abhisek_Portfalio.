@@ -92,10 +92,10 @@ function useCountUp(target: number, duration = 800) {
 function SectionHeader({ title, subtitle }: { eyebrow?: string; title: string; subtitle: string }) {
   return (
     <div className="reveal mx-auto mb-14 max-w-2xl text-center">
-      <h2 className="text-[36px] font-semibold tracking-[-0.02em] text-[#FAFAFA]">
+      <h2 className="text-[36px] font-semibold tracking-[-0.02em] text-foreground">
         {title}
       </h2>
-      <p className="mt-3 text-[16px] leading-[1.65] text-[#9CA3AF]">{subtitle}</p>
+      <p className="mt-3 text-[16px] leading-[1.65] text-muted-foreground">{subtitle}</p>
     </div>
   );
 }
@@ -104,11 +104,11 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
   const { value: n, ref } = useCountUp(value);
   return (
     <div ref={ref} className="surface p-6">
-      <div className="text-[18px] font-semibold text-[#FAFAFA]">
+      <div className="text-[18px] font-semibold text-foreground">
         {n}
         {suffix}
       </div>
-      <div className="mt-1 text-[12px] font-medium text-[#9CA3AF]">{label}</div>
+      <div className="mt-1 text-[12px] font-medium text-muted-foreground">{label}</div>
     </div>
   );
 }
@@ -120,27 +120,27 @@ export function Hero() {
     <section id="home" className="relative px-6 pb-24 pt-28 md:pt-36">
       <div className="relative mx-auto grid max-w-[1100px] items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
         <div className="reveal space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-[6px] border border-[#232329] bg-[#101014] px-3 py-1.5 text-[12px] font-medium text-[#9CA3AF]">
-            <span className="size-1.5 rounded-full bg-[#8B5CF6]" />
+          <div className="inline-flex items-center gap-2 rounded-[6px] border border-border bg-secondary/80 px-3 py-1.5 text-[12px] font-medium text-muted-foreground shadow-xs">
+            <span className="size-1.5 rounded-full bg-primary" />
             Open to internships &amp; developer roles
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-[36px] font-bold leading-[1.1] tracking-[-0.03em] text-[#FAFAFA] md:text-[56px]">
+            <h1 className="text-[36px] font-bold leading-[1.1] tracking-[-0.03em] text-foreground md:text-[56px]">
               Abhishek Mewada
             </h1>
-            <p className="min-h-[1.75rem] text-[16px] font-medium text-[#9CA3AF]">
+            <p className="min-h-[1.75rem] text-[16px] font-medium text-muted-foreground">
               {displayedText}
-              {!isComplete && <span className="ml-1 inline-block h-4 w-px bg-[#FAFAFA]" />}
+              {!isComplete && <span className="ml-1 inline-block h-4 w-px bg-foreground" />}
             </p>
           </div>
 
-          <p className="max-w-xl text-[15px] leading-[1.65] text-[#9CA3AF]">
+          <p className="max-w-xl text-[15px] leading-[1.65] text-muted-foreground">
             B.Tech Computer Science student building scalable web applications. Currently focusing on frontend
             web engineering with HTML, CSS, JavaScript, React, and backend application development using Python &amp; Django.
           </p>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 text-[13px] text-[#9CA3AF]">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 text-[13px] text-muted-foreground">
             <span className="flex items-center gap-1.5">
               <MapPin className="size-3.5" /> Sehore, Madhya Pradesh, India
             </span>
@@ -175,9 +175,9 @@ export function Hero() {
                 width="400"
                 height="400"
               />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-[10px] border border-[#232329] bg-[#101014] px-3 py-2 text-[12px] font-medium text-[#FAFAFA]">
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-[10px] border border-border bg-card/90 backdrop-blur-xs px-3 py-2 text-[12px] font-medium text-foreground shadow-sm">
                 <span className="truncate">Software Developer</span>
-                <span className="size-1.5 shrink-0 rounded-full bg-[#8B5CF6]" />
+                <span className="size-1.5 shrink-0 rounded-full bg-primary" />
               </div>
             </div>
           </div>
@@ -237,7 +237,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
     >
       <div className="p-6 pb-0">
         {project.image ? (
-          <div className="relative aspect-16/10 overflow-hidden rounded-[10px] bg-[#09090B]">
+          <div className="relative aspect-16/10 overflow-hidden rounded-[10px] bg-secondary">
             <img
               src={project.image}
               alt={project.title}
@@ -247,27 +247,27 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
               height="400"
             />
             {project.badge && (
-              <span className="absolute right-3 bottom-3 rounded-[6px] border border-[#2E2E35] bg-[#18181B] px-2 py-1 text-[12px] font-medium text-[#9CA3AF]">
+              <span className="absolute right-3 bottom-3 rounded-[6px] border border-border bg-card/90 backdrop-blur-xs px-2 py-1 text-[12px] font-medium text-foreground shadow-sm">
                 {project.badge}
               </span>
             )}
           </div>
         ) : (
-          <div className="grid aspect-16/10 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] p-4 text-center">
-            <span className="text-[15px] font-semibold text-[#FAFAFA]">{project.tag}</span>
+          <div className="grid aspect-16/10 place-items-center rounded-[10px] border border-border bg-secondary p-4 text-center">
+            <span className="text-[15px] font-semibold text-foreground">{project.tag}</span>
           </div>
         )}
       </div>
 
       <div className="flex flex-1 flex-col gap-5 p-6">
         <div>
-          <h3 className="text-[18px] font-semibold text-[#FAFAFA]">{project.title}</h3>
-          <p className="mt-2 line-clamp-2 text-[15px] leading-[1.65] text-[#9CA3AF]">
+          <h3 className="text-[18px] font-semibold text-foreground">{project.title}</h3>
+          <p className="mt-2 line-clamp-2 text-[15px] leading-[1.65] text-muted-foreground">
             {project.problem}
           </p>
         </div>
 
-        <ul className="space-y-2 text-[15px] leading-[1.65] text-[#9CA3AF]">
+        <ul className="space-y-2 text-[15px] leading-[1.65] text-muted-foreground">
           {project.features.slice(0, 3).map((f) => (
             <li key={f} className="truncate">{f}</li>
           ))}
@@ -359,13 +359,13 @@ export function Skills() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((c) => (
             <div key={c.name} className="reveal surface p-6">
-              <h3 className="mb-4 text-[18px] font-semibold text-[#FAFAFA]">{c.name}</h3>
+              <h3 className="mb-4 text-[18px] font-semibold text-foreground">{c.name}</h3>
               <div className="space-y-3">
                 {c.items.map((item, index) => (
                   <div key={item} className="space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="text-[12px] font-medium text-[#FAFAFA]">{item}</span>
-                      <span className="text-[12px] font-medium text-[#9CA3AF]">{c.levels[index]}%</span>
+                      <span className="text-[12px] font-medium text-foreground">{item}</span>
+                      <span className="text-[12px] font-medium text-muted-foreground">{c.levels[index]}%</span>
                     </div>
                     <div className="progress-bar">
                       <div
@@ -401,12 +401,12 @@ export function About() {
           subtitle="My journey and learning path as a computer science student and software engineer."
         />
         <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="reveal surface space-y-5 p-6 text-[15px] leading-[1.65] text-[#9CA3AF]">
+          <div className="reveal surface space-y-5 p-6 text-[15px] leading-[1.65] text-muted-foreground">
             <p>
-              I'm a Computer Science Engineering student based in Sehore, Madhya Pradesh, pursuing my B.Tech degree at <strong className="font-semibold text-[#FAFAFA]">SISTec Bhopal</strong>. My passion lies in software development, web engineering, and building intuitive user experiences.
+              I'm a Computer Science Engineering student based in Sehore, Madhya Pradesh, pursuing my B.Tech degree at <strong className="font-semibold text-foreground">SISTec Bhopal</strong>. My passion lies in software development, web engineering, and building intuitive user experiences.
             </p>
             <p>
-              I focus on mastering core computer science principles while building real-world applications serving real users. Currently, I am expanding my full-stack knowledge using <strong className="font-semibold text-[#FAFAFA]">Python, Django, React, and TypeScript</strong> to craft scalable web systems.
+              I focus on mastering core computer science principles while building real-world applications serving real users. Currently, I am expanding my full-stack knowledge using <strong className="font-semibold text-foreground">Python, Django, React, and TypeScript</strong> to craft scalable web systems.
             </p>
           </div>
           <div className="reveal space-y-6">
@@ -414,12 +414,12 @@ export function About() {
               const Icon = f.icon;
               return (
                 <div key={f.label} className="surface flex items-center gap-4 p-6">
-                  <div className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] text-[#FAFAFA]">
+                  <div className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-border bg-secondary text-foreground">
                     <Icon className="size-5" />
                   </div>
                   <div>
-                    <div className="text-[12px] font-medium text-[#9CA3AF]">{f.label}</div>
-                    <div className="mt-0.5 text-[15px] font-semibold text-[#FAFAFA]">{f.value}</div>
+                    <div className="text-[12px] font-medium text-muted-foreground">{f.label}</div>
+                    <div className="mt-0.5 text-[15px] font-semibold text-foreground">{f.value}</div>
                   </div>
                 </div>
               );
@@ -469,12 +469,12 @@ export function Certifications() {
               className="reveal surface-hover flex flex-wrap items-center justify-between gap-4 p-6"
             >
               <div className="flex items-center gap-3">
-                <div className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] text-[#FAFAFA]">
+                <div className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-border bg-secondary text-foreground">
                   <Award className="size-5" />
                 </div>
                 <div>
-                  <h3 className="text-[18px] font-semibold text-[#FAFAFA]">{c.title}</h3>
-                  <p className="mt-1 text-[12px] font-medium text-[#9CA3AF]">{c.issuer}</p>
+                  <h3 className="text-[18px] font-semibold text-foreground">{c.title}</h3>
+                  <p className="mt-1 text-[12px] font-medium text-muted-foreground">{c.issuer}</p>
                 </div>
               </div>
               <Button asChild variant="outline">
@@ -502,7 +502,7 @@ export function Experience() {
         />
 
         <div className="relative">
-          <div className="absolute bottom-0 left-4 top-0 w-px bg-[#232329] sm:left-1/2 sm:-translate-x-1/2" />
+          <div className="absolute bottom-0 left-4 top-0 w-px bg-border sm:left-1/2 sm:-translate-x-1/2" />
 
           <div className="space-y-6">
             {experience.map((exp, index) => (
@@ -510,19 +510,19 @@ export function Experience() {
                 key={index}
                 className={`reveal relative flex flex-col gap-6 sm:flex-row sm:gap-8 ${index % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}
               >
-                <div className="absolute left-4 top-6 z-10 size-2.5 -translate-x-1/2 rounded-full bg-[#FAFAFA] sm:left-1/2" />
+                <div className="absolute left-4 top-6 z-10 size-2.5 -translate-x-1/2 rounded-full bg-foreground ring-4 ring-background sm:left-1/2" />
 
                 <div className={`ml-12 sm:ml-0 sm:w-1/2 ${index % 2 === 0 ? "sm:pr-8" : "sm:pl-8"}`}>
                   <div className="surface p-6">
                     <div className="mb-3">
                       <span className="tech-badge">{exp.period}</span>
                     </div>
-                    <h3 className="mb-1 text-[18px] font-semibold text-[#FAFAFA]">{exp.title}</h3>
-                    <p className="mb-3 text-[15px] font-medium text-[#9CA3AF]">{exp.company}</p>
-                    <p className="mb-4 text-[15px] leading-[1.65] text-[#9CA3AF]">{exp.description}</p>
+                    <h3 className="mb-1 text-[18px] font-semibold text-foreground">{exp.title}</h3>
+                    <p className="mb-3 text-[15px] font-medium text-muted-foreground">{exp.company}</p>
+                    <p className="mb-4 text-[15px] leading-[1.65] text-muted-foreground">{exp.description}</p>
                     <ul className="space-y-2">
                       {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-[15px] leading-[1.65] text-[#9CA3AF]">
+                        <li key={idx} className="text-[15px] leading-[1.65] text-muted-foreground">
                           {highlight}
                         </li>
                       ))}
@@ -556,7 +556,7 @@ export function Contact() {
   };
 
   const field =
-    "h-11 w-full rounded-[10px] border border-[#232329] bg-[#101014] px-4 text-[15px] text-[#FAFAFA] outline-none transition-[border-color] duration-200 placeholder:text-[#52525B] focus:border-[#8B5CF6] focus:ring-0";
+    "h-11 w-full rounded-[10px] border border-border bg-card px-4 text-[15px] text-foreground outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-muted-foreground/60 focus:border-primary focus:ring-1 focus:ring-primary";
 
   return (
     <section id="contact" className="relative px-6 py-24">
@@ -569,7 +569,7 @@ export function Contact() {
         <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <form onSubmit={submit} className="reveal surface space-y-4 p-6">
             <div className="form-field">
-              <label className="mb-1.5 block text-[13px] font-medium text-[#9CA3AF]" htmlFor="name">Your Name</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-muted-foreground" htmlFor="name">Your Name</label>
               <input
                 id="name" required className={field} placeholder="John Doe"
                 value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -577,7 +577,7 @@ export function Contact() {
               <p className="field-error">Please enter your name.</p>
             </div>
             <div className="form-field">
-              <label className="mb-1.5 block text-[13px] font-medium text-[#9CA3AF]" htmlFor="email">Your Email</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-muted-foreground" htmlFor="email">Your Email</label>
               <input
                 id="email" type="email" required className={field} placeholder="john@example.com"
                 value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -585,7 +585,7 @@ export function Contact() {
               <p className="field-error">Please enter a valid email.</p>
             </div>
             <div className="form-field">
-              <label className="mb-1.5 block text-[13px] font-medium text-[#9CA3AF]" htmlFor="message">Message</label>
+              <label className="mb-1.5 block text-[13px] font-medium text-muted-foreground" htmlFor="message">Message</label>
               <textarea
                 id="message" required rows={4} className={`${field} h-auto py-3`}
                 placeholder="Hello Abhishek, I'd like to discuss a project..."
@@ -601,12 +601,12 @@ export function Contact() {
           <div className="reveal space-y-6">
             <div className="surface flex items-center justify-between gap-4 p-6">
               <div className="flex min-w-0 items-center gap-4">
-                <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] text-[#FAFAFA]">
+                <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-border bg-secondary text-foreground">
                   <Mail className="size-5" />
                 </span>
                 <div className="min-w-0">
-                  <div className="text-[12px] font-medium text-[#9CA3AF]">Email Address</div>
-                  <div className="truncate text-[15px] font-semibold text-[#FAFAFA]">{EMAIL}</div>
+                  <div className="text-[12px] font-medium text-muted-foreground">Email Address</div>
+                  <div className="truncate text-[15px] font-semibold text-foreground">{EMAIL}</div>
                 </div>
               </div>
               <Button
@@ -616,27 +616,27 @@ export function Contact() {
                 onClick={copyEmail}
                 title="Copy email address"
               >
-                {copied ? <Check className="size-4 text-[#22C55E]" /> : <Copy className="size-4" />}
+                {copied ? <Check className="size-4 text-emerald-500" /> : <Copy className="size-4" />}
               </Button>
             </div>
 
             <a className="surface-hover flex items-center gap-4 p-6" href={GITHUB} target="_blank" rel="noopener noreferrer">
-              <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] text-[#FAFAFA]">
+              <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-border bg-secondary text-foreground">
                 <Github className="size-5" />
               </span>
               <div className="min-w-0">
-                <div className="text-[12px] font-medium text-[#9CA3AF]">GitHub</div>
-                <div className="truncate text-[15px] font-semibold text-[#FAFAFA]">@abhimewada01</div>
+                <div className="text-[12px] font-medium text-muted-foreground">GitHub</div>
+                <div className="truncate text-[15px] font-semibold text-foreground">@abhimewada01</div>
               </div>
             </a>
 
             <a className="surface-hover flex items-center gap-4 p-6" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-              <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-[#232329] bg-[#18181B] text-[#FAFAFA]">
+              <span className="grid size-10 shrink-0 place-items-center rounded-[10px] border border-border bg-secondary text-foreground">
                 <Linkedin className="size-5" />
               </span>
               <div className="min-w-0">
-                <div className="text-[12px] font-medium text-[#9CA3AF]">LinkedIn</div>
-                <div className="truncate text-[15px] font-semibold text-[#FAFAFA]">Abhishek Mewada</div>
+                <div className="text-[12px] font-medium text-muted-foreground">LinkedIn</div>
+                <div className="truncate text-[15px] font-semibold text-foreground">Abhishek Mewada</div>
               </div>
             </a>
           </div>
@@ -648,13 +648,13 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#232329] px-6 py-8">
-      <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-[13px] text-[#9CA3AF]">
+    <footer className="border-t border-border px-6 py-8">
+      <div className="mx-auto flex max-w-[1100px] flex-wrap items-center justify-between gap-4 text-[13px] text-muted-foreground">
         <span>© {new Date().getFullYear()} Abhishek Mewada — Built with React &amp; Tailwind CSS</span>
         <div className="flex gap-5 font-medium">
-          <a className="transition-colors duration-200 hover:text-[#FAFAFA]" href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a className="transition-colors duration-200 hover:text-[#FAFAFA]" href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a className="transition-colors duration-200 hover:text-[#FAFAFA]" href={`mailto:${EMAIL}`}>Email</a>
+          <a className="transition-colors duration-200 hover:text-foreground" href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a className="transition-colors duration-200 hover:text-foreground" href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a className="transition-colors duration-200 hover:text-foreground" href={`mailto:${EMAIL}`}>Email</a>
         </div>
       </div>
     </footer>

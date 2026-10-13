@@ -43,7 +43,9 @@ export function DesktopNav({ activeId, onSelect }: NavProps) {
             onClick={() => onSelect(item.id)}
             aria-current={isActive ? "page" : undefined}
             className={`rounded-[10px] px-3 py-1.5 text-[14px] font-medium transition-colors duration-200 ease-out ${
-              isActive ? "text-[#FAFAFA]" : "text-[#9CA3AF] hover:text-[#FAFAFA]"
+              isActive
+                ? "text-foreground font-semibold bg-secondary/80 dark:bg-white/10"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {item.label}
@@ -75,9 +77,9 @@ export function BottomDock({ activeId, onSelect }: NavProps) {
       aria-label="Section navigation"
       className="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-[calc(100%-32px)] max-w-[1100px] justify-center md:hidden"
     >
-      <div className="relative flex w-full items-center justify-between rounded-2xl border border-[#232329] bg-[#101014] px-2 py-2">
+      <div className="relative flex w-full items-center justify-between rounded-2xl border border-border bg-card/90 backdrop-blur-md px-2 py-2 shadow-lg">
         <span
-          className="nav-pill pointer-events-none absolute top-1/2 h-7 w-7 -translate-y-1/2 rounded-full bg-[#18181B] transition-transform duration-200 ease-out"
+          className="nav-pill pointer-events-none absolute top-1/2 h-7 w-7 -translate-y-1/2 rounded-full bg-secondary transition-transform duration-200 ease-out"
           style={{
             transform: `translate(${pill.x}px, -50%)`,
             opacity: pill.ready ? 1 : 0,
@@ -101,11 +103,11 @@ export function BottomDock({ activeId, onSelect }: NavProps) {
             >
               <Icon
                 className={`size-5 transition-[color,transform] duration-200 ease-out ${
-                  isActive ? "scale-110 text-[#8B5CF6]" : "text-[#52525B]"
+                  isActive ? "scale-110 text-primary" : "text-muted-foreground"
                 }`}
               />
               <span
-                className={`absolute bottom-1 size-1 rounded-full bg-[#8B5CF6] transition-opacity duration-200 ${
+                className={`absolute bottom-1 size-1 rounded-full bg-primary transition-opacity duration-200 ${
                   isActive ? "opacity-100" : "opacity-0"
                 }`}
               />

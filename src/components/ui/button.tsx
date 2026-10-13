@@ -5,21 +5,21 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-[10px] font-semibold cursor-pointer transition-[background-color,border-color,transform,color] duration-200 ease-out focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-[10px] font-semibold cursor-pointer transition-[background-color,border-color,transform,color] duration-200 ease-out focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "h-11 bg-[#FAFAFA] px-6 text-[15px] font-semibold text-[#09090B] hover:bg-[#E4E4E7] hover:-translate-y-px",
+          "h-11 bg-primary text-primary-foreground px-6 text-[15px] font-semibold hover:bg-primary/90 hover:-translate-y-px active:translate-y-0 shadow-sm shadow-primary/20 transition-all duration-200",
         destructive:
-          "h-11 bg-[#EF4444] px-6 text-[15px] font-semibold text-[#FAFAFA] hover:bg-[#EF4444]/90",
+          "h-11 bg-[#EF4444] px-6 text-[15px] font-semibold text-white hover:bg-[#EF4444]/90",
         outline:
-          "group h-10 border border-[#2E2E35] bg-transparent px-6 text-[14px] font-medium text-[#FAFAFA] hover:border-[#8B5CF6] hover:bg-[rgba(139,92,246,0.06)]",
+          "group h-10 border border-border bg-card/60 px-6 text-[14px] font-medium text-foreground hover:border-primary hover:text-primary hover:bg-primary/5 shadow-xs transition-all duration-200",
         secondary:
-          "h-10 bg-[#18181B] px-6 text-[14px] font-medium text-[#FAFAFA] hover:bg-[#1C1C22]",
+          "h-10 bg-secondary px-6 text-[14px] font-medium text-foreground hover:bg-secondary/80 transition-all duration-200",
         ghost:
-          "h-10 bg-transparent px-3 text-[14px] font-medium text-[#FAFAFA] hover:bg-[#18181B]",
-        link: "h-auto rounded-none px-0 text-[14px] font-medium text-[#FAFAFA] underline-offset-4 hover:underline",
+          "h-10 bg-transparent px-3 text-[14px] font-medium text-foreground hover:bg-secondary transition-all duration-200",
+        link: "h-auto rounded-none px-0 text-[14px] font-medium text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "",

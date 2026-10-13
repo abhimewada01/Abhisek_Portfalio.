@@ -40,48 +40,48 @@
   --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #faf8f5;
+  --foreground: #231913;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #231913;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #6366f1;
+  --popover-foreground: #231913;
+  --primary: #5c3826;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #6366f1;
+  --secondary: #f3ece4;
+  --secondary-foreground: #231913;
+  --muted: #f3ece4;
+  --muted-foreground: #78675c;
+  --accent: #6f4430;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #6366f1;
+  --border: #e7dfd5;
+  --input: #e7dfd5;
+  --ring: #5c3826;
   --success: #10b981;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #101014;
-  --card-foreground: #fafafa;
-  --popover: #101014;
-  --popover-foreground: #fafafa;
-  --primary: #8b5cf6;
-  --primary-foreground: #ffffff;
-  --secondary: #18181b;
-  --secondary-foreground: #fafafa;
-  --muted: #18181b;
-  --muted-foreground: #9ca3af;
-  --accent: #8b5cf6;
-  --accent-foreground: #fafafa;
+  --background: #0f0c0a;
+  --foreground: #f6f2ee;
+  --card: #181310;
+  --card-foreground: #f6f2ee;
+  --popover: #181310;
+  --popover-foreground: #f6f2ee;
+  --primary: #c2885a;
+  --primary-foreground: #1c120c;
+  --secondary: #241c17;
+  --secondary-foreground: #f6f2ee;
+  --muted: #241c17;
+  --muted-foreground: #a6968c;
+  --accent: #c2885a;
+  --accent-foreground: #1c120c;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #232329;
-  --input: #232329;
-  --ring: #8b5cf6;
+  --border: #332720;
+  --input: #332720;
+  --ring: #c2885a;
   --success: #22c55e;
 }
 
@@ -129,17 +129,20 @@
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: 14px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
 @utility surface-hover {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: 14px;
-  transition: border-color 200ms ease, transform 200ms ease;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
 }
 .surface-hover:hover {
   border-color: var(--color-ring);
   transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
 }
 
 @utility reveal {
@@ -180,7 +183,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
-  color: var(--color-muted-foreground);
+  color: var(--color-foreground);
   background: var(--color-secondary);
   border: 1px solid var(--color-border);
   border-radius: 6px;

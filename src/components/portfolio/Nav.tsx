@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import { BottomDock, DesktopNav, navItems } from "@/components/portfolio/LiquidNav";
+import { ThemeToggle } from "@/components/portfolio/ThemeToggle";
 import { Button } from "@/components/ui/button";
 
 export function Nav() {
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    document.documentElement.classList.add("dark");
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -53,21 +50,29 @@ export function Nav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 hidden md:block transition-[background-color,border-color] duration-300 ease-out ${
-          scrolled ? "border-b border-border bg-background/80 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ease-out ${
+          scrolled
+            ? "border-b border-border bg-background/80 backdrop-blur-md shadow-xs"
+            : "border-b border-transparent bg-background/40 md:bg-transparent backdrop-blur-xs md:backdrop-blur-none"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between px-6">
-          <a href="#home" className="shrink-0 text-[15px] font-semibold tracking-[-0.02em] text-foreground hover:text-primary transition-colors">
+        <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between px-4 sm:px-6">
+          <a
+            href="#home"
+            className="shrink-0 text-[15px] font-semibold tracking-[-0.02em] text-foreground hover:text-primary transition-colors"
+          >
             Abhishek Mewada
           </a>
 
-          <DesktopNav activeId={active} onSelect={handleSelectSection} />
+          <div className="hidden md:block">
+            <DesktopNav activeId={active} onSelect={handleSelectSection} />
+          </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <ThemeToggle />
             <Button
               type="button"
-              className="h-9 px-6 text-[14px]"
+              className="h-9 px-4 sm:px-6 text-[13px] sm:text-[14px]"
               onClick={() => handleSelectSection("contact")}
             >
               Hire Me
