@@ -434,19 +434,7 @@ export function About() {
 
 const experience = [
   {
-    period: "2024 - Present",
-    title: "Freelance Full-Stack Developer",
-    company: "Freelance & Remote Client Projects",
-    description: "Architecting, developing, and deploying full-scale custom web applications, ed-tech platforms, and responsive client software.",
-    highlights: [
-      "Engineered & launched Abhi Academy ed-tech platform, actively serving 7,000+ live active users",
-      "Delivered performant, mobile-first responsive web apps using React, TypeScript, and Tailwind CSS",
-      "Engineered backend REST APIs, authentication, and database schemas with Python & Django",
-      "Collaborating directly with clients from concept through to cloud deployment and ongoing maintenance"
-    ]
-  },
-  {
-    period: "2022 - Present",
+    period: "2022 - 2026",
     title: "B.Tech Computer Science Student",
     company: "SISTec Bhopal",
     description: "Pursuing Bachelor of Technology in Computer Science with focus on software development, web engineering, and building real-world applications.",
@@ -458,6 +446,18 @@ const experience = [
     company: "Self-Initiated Projects",
     description: "Developed and deployed multiple production applications including Abhi Academy (Skillearn) platform serving 7,000+ real-time users.",
     highlights: ["Built Abhi Academy platform with React & TypeScript", "Developed Hospital Management System", "Implemented responsive UI designs and user experiences"]
+  },
+  {
+    period: "2024 - Present",
+    title: "Freelance Full-Stack Developer",
+    company: "Freelance & Remote Client Projects",
+    description: "Architecting, developing, and deploying full-scale custom web applications, ed-tech platforms, and responsive client software.",
+    highlights: [
+      "Engineered & launched Abhi Academy ed-tech platform, actively serving 7,000+ live active users",
+      "Delivered performant, mobile-first responsive web apps using React, TypeScript, and Tailwind CSS",
+      "Engineered backend REST APIs, authentication, and database schemas with Python & Django",
+      "Collaborating directly with clients from concept through to cloud deployment and ongoing maintenance"
+    ]
   }
 ];
 
