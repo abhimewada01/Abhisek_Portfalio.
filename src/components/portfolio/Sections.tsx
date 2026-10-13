@@ -105,7 +105,7 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
   return (
     <div ref={ref} className="surface p-6">
       <div className="text-[18px] font-semibold text-foreground">
-        {n}
+        {n.toLocaleString()}
         {suffix}
       </div>
       <div className="mt-1 text-[12px] font-medium text-muted-foreground">{label}</div>
@@ -114,15 +114,15 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
 }
 
 export function Hero() {
-  const { displayedText, isComplete } = useTypingEffect("Software Developer & B.Tech CS Student", 50);
+  const { displayedText, isComplete } = useTypingEffect("Freelance Full-Stack Developer & Software Engineer", 45);
 
   return (
     <section id="home" className="relative px-6 pb-24 pt-28 md:pt-36">
       <div className="relative mx-auto grid max-w-[1100px] items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
         <div className="reveal space-y-6">
           <div className="inline-flex items-center gap-2 rounded-[6px] border border-border bg-secondary/80 px-3 py-1.5 text-[12px] font-medium text-muted-foreground shadow-xs">
-            <span className="size-1.5 rounded-full bg-primary" />
-            Open to internships &amp; developer roles
+            <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+            Available for Freelance Projects &amp; Developer Roles
           </div>
 
           <div className="space-y-3">
@@ -136,8 +136,9 @@ export function Hero() {
           </div>
 
           <p className="max-w-xl text-[15px] leading-[1.65] text-muted-foreground">
-            B.Tech Computer Science student building scalable web applications. Currently focusing on frontend
-            web engineering with HTML, CSS, JavaScript, React, and backend application development using Python &amp; Django.
+            Freelance Full-Stack Developer &amp; B.Tech Computer Science student specializing in building high-performance,
+            production-ready web applications. Engineering responsive interfaces with React &amp; TypeScript and robust backends
+            with Python &amp; Django for clients and users worldwide.
           </p>
 
           <div className="flex flex-wrap gap-x-6 gap-y-2 pt-1 text-[13px] text-muted-foreground">
@@ -151,7 +152,7 @@ export function Hero() {
           </div>
 
           <div className="grid grid-cols-2 gap-6 pt-2 sm:grid-cols-3">
-            <StatCard value={5000} suffix="+" label="Live App Users" />
+            <StatCard value={7000} suffix="+" label="Live App Users" />
             <StatCard value={3} suffix="+" label="Production Apps" />
             <div className="col-span-2 sm:col-span-1">
               <StatCard value={100} suffix="%" label="Responsive Code" />
@@ -176,8 +177,8 @@ export function Hero() {
                 height="400"
               />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-[10px] border border-border bg-card/90 backdrop-blur-xs px-3 py-2 text-[12px] font-medium text-foreground shadow-sm">
-                <span className="truncate">Software Developer</span>
-                <span className="size-1.5 shrink-0 rounded-full bg-primary" />
+                <span className="truncate">Freelance Full-Stack Developer</span>
+                <span className="size-1.5 shrink-0 rounded-full bg-emerald-500" />
               </div>
             </div>
           </div>
@@ -190,15 +191,15 @@ export function Hero() {
 const projects: Project[] = [
   {
     title: "Abhi Academy",
-    tag: "Production Live App • 5000+ Users",
+    tag: "Production Live App • 7000+ Users",
     url: "www.abhiacademy.in",
     liveUrl: "https://www.abhiacademy.in/",
-    badge: "⚡ 5000+ Real-Time Active Users",
+    badge: "⚡ 7000+ Real-Time Active Users",
     image: skillearnImage,
     problem:
       "Learners require an intuitive, high-performance ed-tech platform to explore industry-relevant courses, build real career skills, and access paid internships.",
     features: [
-      "Live production deployment actively serving over 5000+ real-time users",
+      "Live production deployment actively serving over 7000+ real-time users",
       "Interactive course discovery, paid internship listings & career development tracks",
       "Responsive, modern UI built with React, TypeScript & Tailwind CSS",
       "High-performance edge deployment hosted on production domain www.abhiacademy.in",
@@ -403,10 +404,10 @@ export function About() {
         <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
           <div className="reveal surface space-y-5 p-6 text-[15px] leading-[1.65] text-muted-foreground">
             <p>
-              I'm a Computer Science Engineering student based in Sehore, Madhya Pradesh, pursuing my B.Tech degree at <strong className="font-semibold text-foreground">SISTec Bhopal</strong>. My passion lies in software development, web engineering, and building intuitive user experiences.
+              I'm a <strong className="font-semibold text-foreground">Freelance Full-Stack Developer</strong> and Computer Science Engineering student based in Sehore, Madhya Pradesh, pursuing my B.Tech degree at <strong className="font-semibold text-foreground">SISTec Bhopal</strong>. My passion lies in engineering high-performance web applications, crafting intuitive interfaces, and delivering modern digital solutions for clients and users.
             </p>
             <p>
-              I focus on mastering core computer science principles while building real-world applications serving real users. Currently, I am expanding my full-stack knowledge using <strong className="font-semibold text-foreground">Python, Django, React, and TypeScript</strong> to craft scalable web systems.
+              Alongside my engineering studies, I actively take on freelance projects and production web systems—including the live ed-tech platform <strong className="font-semibold text-foreground">Abhi Academy</strong> actively serving <strong className="font-semibold text-foreground">7,000+ live users</strong>. My primary stack is <strong className="font-semibold text-foreground">React, TypeScript, Python, and Django</strong>.
             </p>
           </div>
           <div className="reveal space-y-6">
@@ -433,18 +434,30 @@ export function About() {
 
 const experience = [
   {
+    period: "2024 - Present",
+    title: "Freelance Full-Stack Developer",
+    company: "Freelance & Remote Client Projects",
+    description: "Architecting, developing, and deploying full-scale custom web applications, ed-tech platforms, and responsive client software.",
+    highlights: [
+      "Engineered & launched Abhi Academy ed-tech platform, actively serving 7,000+ live active users",
+      "Delivered performant, mobile-first responsive web apps using React, TypeScript, and Tailwind CSS",
+      "Engineered backend REST APIs, authentication, and database schemas with Python & Django",
+      "Collaborating directly with clients from concept through to cloud deployment and ongoing maintenance"
+    ]
+  },
+  {
     period: "2022 - Present",
     title: "B.Tech Computer Science Student",
     company: "SISTec Bhopal",
     description: "Pursuing Bachelor of Technology in Computer Science with focus on software development, web engineering, and building real-world applications.",
-    highlights: ["Full-stack web development with React, Python, Django", "Building production applications serving 500+ users", "Learning modern frontend frameworks and backend technologies"]
+    highlights: ["Full-stack web development with React, Python, Django", "Building production applications serving 7,000+ users", "Learning modern frontend frameworks and backend technologies"]
   },
   {
     period: "2024",
     title: "Full-Stack Developer Intern",
     company: "Self-Initiated Projects",
-    description: "Developed and deployed multiple production applications including Skillearn platform serving 500+ real-time users.",
-    highlights: ["Built Skillearn platform with React & TypeScript", "Developed Hospital Management System", "Implemented responsive UI designs and user experiences"]
+    description: "Developed and deployed multiple production applications including Abhi Academy (Skillearn) platform serving 7,000+ real-time users.",
+    highlights: ["Built Abhi Academy platform with React & TypeScript", "Developed Hospital Management System", "Implemented responsive UI designs and user experiences"]
   }
 ];
 
@@ -563,8 +576,8 @@ export function Contact() {
       <div className="relative mx-auto max-w-[1100px]">
         <SectionHeader
           eyebrow="Get in touch"
-          title="Contact Me"
-          subtitle="Feel free to reach out for developer roles, project collaborations or inquiries."
+          title="Contact & Hire Me"
+          subtitle="Looking for a freelance developer, client project collaboration, or full-time developer role? Let's build something exceptional together."
         />
         <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
           <form onSubmit={submit} className="reveal surface space-y-4 p-6">
@@ -588,7 +601,7 @@ export function Contact() {
               <label className="mb-1.5 block text-[13px] font-medium text-muted-foreground" htmlFor="message">Message</label>
               <textarea
                 id="message" required rows={4} className={`${field} h-auto py-3`}
-                placeholder="Hello Abhishek, I'd like to discuss a project..."
+                placeholder="Hello Abhishek, I'd like to discuss a freelance project / developer opportunity..."
                 value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
               <p className="field-error">Please enter a message.</p>

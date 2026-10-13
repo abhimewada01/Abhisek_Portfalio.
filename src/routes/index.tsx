@@ -13,16 +13,16 @@ import {
 } from "@/components/portfolio/Sections";
 import { useReveal, usePageLoadAnimation } from "@/components/portfolio/useReveal";
 
-const title = "Abhishek Mewada — Software Developer & Full-Stack Engineer";
+const title = "Abhishek Mewada — Freelance Full-Stack Developer & Software Engineer";
 const description =
-  "Portfolio of Abhishek Mewada, B.Tech Computer Science student and software developer in Sehore, Madhya Pradesh. Building scalable web applications with React, Python, Django, and modern frontend technologies. Featuring production apps serving 5000+ users.";
+  "Portfolio of Abhishek Mewada, Freelance Full-Stack Developer and B.Tech Computer Science student in Sehore, Madhya Pradesh. Building scalable web applications with React, Python, Django, and modern frontend technologies. Featuring production apps serving 7,000+ live users.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
-      { name: "keywords", content: "Abhishek Mewada, Software Developer, Full-Stack Developer, React, Python, Django, Web Development, Portfolio, B.Tech Computer Science, Sehore, Madhya Pradesh, India" },
+      { name: "keywords", content: "Abhishek Mewada, Freelance Web Developer, Freelance Full-Stack Developer, Freelancer, React, Python, Django, Web Development, Portfolio, B.Tech Computer Science, Sehore, Madhya Pradesh, India" },
       { name: "author", content: "Abhishek Mewada" },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
@@ -45,7 +45,7 @@ function Index() {
   usePageLoadAnimation();
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-transparent text-muted-foreground pb-24 md:pb-0 transition-colors duration-300">
+    <div className="relative min-h-screen overflow-x-hidden bg-background text-muted-foreground pb-24 md:pb-0 transition-colors duration-300">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[10px] focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"

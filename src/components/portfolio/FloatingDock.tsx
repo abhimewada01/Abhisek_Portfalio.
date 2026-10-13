@@ -9,7 +9,7 @@ export function FloatingDock() {
   return (
     <div className="flex flex-wrap items-center gap-3">
       <Button asChild>
-        <a href="#contact">Contact Me</a>
+        <a href="#contact">Hire Me / Contact</a>
       </Button>
       <Button asChild variant="outline">
         <a href="/Abhishek_Mewada_Resume.pdf" download="Abhishek_Mewada_Resume.pdf" target="_blank" rel="noopener noreferrer">

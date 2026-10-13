@@ -12,7 +12,6 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Button } from "@/components/ui/button";
-import ParticleDrift from "@/components/ui/particle-drift";
 
 function NotFoundComponent() {
   return (
@@ -72,17 +71,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Abhishek Mewada — Software Developer Portfolio" },
-      { name: "description", content: "Portfolio of Abhishek Mewada, Software Developer and B.Tech Computer Science student. Building scalable web applications with React, Python, Django and modern frontend technologies." },
+      { title: "Abhishek Mewada — Freelance Full-Stack Developer & Software Engineer" },
+      { name: "description", content: "Portfolio of Abhishek Mewada, Freelance Full-Stack Developer and B.Tech Computer Science student serving 7,000+ live users. Building scalable web applications with React, Python, Django and modern frontend technologies." },
       { name: "author", content: "Abhishek Mewada" },
-      { name: "keywords", content: "Software Developer, Full-Stack Developer, React, Python, Django, Web Development, Portfolio" },
+      { name: "keywords", content: "Abhishek Mewada, Freelance Web Developer, Freelance Full-Stack Developer, Freelancer, React, Python, Django, Web Development, Portfolio" },
       { name: "robots", content: "index, follow" },
-      { property: "og:title", content: "Abhishek Mewada — Software Developer Portfolio" },
-      { property: "og:description", content: "Portfolio of Abhishek Mewada, Software Developer and B.Tech Computer Science student. Building scalable web applications with React, Python, Django and modern frontend technologies." },
+      { property: "og:title", content: "Abhishek Mewada — Freelance Full-Stack Developer Portfolio" },
+      { property: "og:description", content: "Portfolio of Abhishek Mewada, Freelance Full-Stack Developer serving 7,000+ live users. Building scalable web applications with React, Python, Django." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Abhishek Mewada — Software Developer Portfolio" },
-      { name: "twitter:description", content: "Portfolio of Abhishek Mewada, Software Developer and B.Tech Computer Science student. Building scalable web applications with React, Python, Django and modern frontend technologies." },
+      { name: "twitter:title", content: "Abhishek Mewada — Freelance Full-Stack Developer Portfolio" },
+      { name: "twitter:description", content: "Portfolio of Abhishek Mewada, Freelance Full-Stack Developer serving 7,000+ live users. Building scalable web applications with React, Python, Django." },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -140,17 +139,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <ParticleDrift
-          density={350}
-          dotSize={5}
-          speed={50}
-          hover={200}
-          linkDistance={220}
-          linkThickness={1}
-        />
-      </div>
-      <div className="relative z-10 min-h-screen">
+      <div className="relative min-h-screen bg-background">
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
       </div>
