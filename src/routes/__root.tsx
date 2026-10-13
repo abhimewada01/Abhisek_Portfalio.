@@ -140,13 +140,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60 dark:opacity-75">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <ParticleDrift
-          density={100}
-          speed={30}
-          dotSize={3.5}
-          linkDistance={130}
-          hover={160}
+          density={350}
+          dotSize={5}
+          speed={50}
+          hover={200}
+          linkDistance={220}
+          linkThickness={1}
         />
       </div>
       <div className="relative z-10 min-h-screen">

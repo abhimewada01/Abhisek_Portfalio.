@@ -216,19 +216,19 @@ interface DriftParams {
   linkThickness: number
 }
 
-export default function ParticleDrift(props: ParticleDriftProps) {
+export function ParticleDrift(props: ParticleDriftProps) {
   const {
     className = "",
     style,
     background = "transparent",
     baseColor,
     accentColor,
-    density = 100,
-    dotSize = 4,
-    speed = 35,
+    density = 350,
+    dotSize = 5,
+    speed = 50,
     direction = 0,
-    hover = 150,
-    linkDistance = 140,
+    hover = 200,
+    linkDistance = 220,
     linkThickness = 1,
     width,
     height,
@@ -246,8 +246,10 @@ export default function ParticleDrift(props: ParticleDriftProps) {
     return () => obs.disconnect()
   }, [])
 
-  const resolvedBase = baseColor || (isDark ? "#B87A4D" : "#8C5835")
-  const resolvedAccent = accentColor || (isDark ? "#F0B27A" : "#5C3826")
+  // In dark mode: signature Originkit #FFFFFF white dots with #FDFF00 neon yellow hover lines!
+  // In light mode: high-contrast warm chocolate dots with amber-gold hover lines!
+  const resolvedBase = baseColor || (isDark ? "#FFFFFF" : "#3E2723")
+  const resolvedAccent = accentColor || (isDark ? "#FDFF00" : "#D97706")
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const sizeRef = useRef({ w: 0, h: 0 })
@@ -258,7 +260,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
   const vRef = useRef<DriftParams>({
     base: resolvedBase,
     accent: resolvedAccent,
-    density: Math.round(clampN(num(density, 90), 10, 400)),
+    density: Math.round(clampN(num(density, 90), 10, 500)),
     dotSize: clampN(num(dotSize, 5), 1, 24),
     speed: clampN(num(speed, 50), 0, 100) / 50,
     direction: clampN(num(direction, 0), 0, 360),
@@ -270,7 +272,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
   vRef.current = {
     base: resolvedBase,
     accent: resolvedAccent,
-    density: Math.round(clampN(num(density, 90), 10, 400)),
+    density: Math.round(clampN(num(density, 90), 10, 500)),
     dotSize: clampN(num(dotSize, 5), 1, 24),
     speed: clampN(num(speed, 50), 0, 100) / 50,
     direction: clampN(num(direction, 0), 0, 360),
@@ -404,7 +406,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
 
       const ptr = ptrRef.current
       const hv = v.hover
-      const reach = 180 * (hv > 0 ? 1 : 0)
+      const reach = 190 * (hv > 0 ? 1 : 0)
       const LINKD = v.linkDistance
       const LINKW = v.linkThickness
 
@@ -472,7 +474,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
         const d = Math.sqrt(dx * dx + dy * dy)
         const lit = reach > 0 && d < reach ? 1 : 0
         if (lit === 1) {
-          const a = 0.5 * (1 - d / reach) * hv
+          const a = 0.6 * (1 - d / reach) * hv
           pushLine(curX, curY, ptr.x, ptr.y, a, a, 1, LINKW)
         }
         gPos[i * 2] = curX
@@ -496,7 +498,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
             const dy = yi - yj
             const dd = dx * dx + dy * dy
             if (dd >= l2) continue
-            const a = 0.15 * (1 - Math.sqrt(dd) / LINKD)
+            const a = 0.2 * (1 - Math.sqrt(dd) / LINKD)
             pushLine(xi, yi, xj, yj, a, a, 0, LINKW)
           }
         }
@@ -508,8 +510,8 @@ export default function ParticleDrift(props: ParticleDriftProps) {
       gl.enable(gl.BLEND)
       gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA)
 
-      const cb = parseColor(v.base, [0.722, 0.478, 0.302])
-      const ca = parseColor(v.accent, [0.902, 0.659, 0.459])
+      const cb = parseColor(v.base, [1, 1, 1])
+      const ca = parseColor(v.accent, [0.992, 1, 0])
 
       if (lines > 0) {
         gl.useProgram(lineProg)
@@ -560,7 +562,7 @@ export default function ParticleDrift(props: ParticleDriftProps) {
         gl.uniform2f(u(dotProg, "uSize"), cw, ch)
         gl.uniform1f(u(dotProg, "uDpr"), dpr)
         gl.uniform1f(u(dotProg, "uDot"), v.dotSize)
-        gl.uniform1f(u(dotProg, "uRestAlpha"), 0.35)
+        gl.uniform1f(u(dotProg, "uRestAlpha"), 0.45)
         gl.uniform3f(u(dotProg, "uBase"), cb[0], cb[1], cb[2])
         gl.uniform3f(u(dotProg, "uAccent"), ca[0], ca[1], ca[2])
         gl.drawArrays(gl.POINTS, 0, nCount)
@@ -623,3 +625,5 @@ export default function ParticleDrift(props: ParticleDriftProps) {
     </div>
   )
 }
+
+export default ParticleDrift
