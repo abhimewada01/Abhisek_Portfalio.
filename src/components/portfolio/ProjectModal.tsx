@@ -11,10 +11,12 @@ export type Project = {
   tech: string[];
   link: string;
   liveUrl?: string;
+  githubUrl?: string;
   badge?: string;
   image?: string;
   gradient: string;
   role?: string;
+  metrics?: { label: string; value: string }[];
 };
 
 interface ProjectModalProps {
@@ -106,6 +108,17 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
             </h2>
           </div>
 
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {project.metrics.map((m) => (
+                <div key={m.label} className="rounded-[10px] border border-border bg-secondary/60 p-3 text-center">
+                  <div className="text-[16px] font-bold text-foreground">{m.value}</div>
+                  <div className="mt-0.5 text-[11px] font-medium text-muted-foreground">{m.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="space-y-2">
             <h3 className="text-[13px] font-medium text-foreground">Project Overview</h3>
             <p className="text-[15px] leading-[1.65] text-muted-foreground">{project.problem}</p>
@@ -152,7 +165,15 @@ export const ProjectModal: FC<ProjectModalProps> = ({ project, onClose }) => {
                 </a>
               </Button>
             )}
-            {project.link && project.link.includes("github") && (
+            {project.githubUrl && (
+              <Button asChild variant="outline">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github /> View Code
+                  <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]" aria-hidden="true">↗</span>
+                </a>
+              </Button>
+            )}
+            {!project.githubUrl && project.link && project.link.includes("github") && (
               <Button asChild variant="outline">
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <Github /> View Source

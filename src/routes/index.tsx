@@ -9,6 +9,7 @@ import {
   Footer,
   Hero,
   Projects,
+  Services,
   Skills,
 } from "@/components/portfolio/Sections";
 import { useReveal, usePageLoadAnimation } from "@/components/portfolio/useReveal";
@@ -55,6 +56,7 @@ function Index() {
       <Nav />
       <main id="main">
         <Hero />
+        <Services />
         <Projects />
         <Skills />
         <About />

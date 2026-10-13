@@ -18,11 +18,11 @@ export interface NavItem {
 
 export const navItems: NavItem[] = [
   { id: "home", label: "Home", icon: Home },
+  { id: "services", label: "Services", icon: Briefcase },
   { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "skills", label: "Skills", icon: Cpu },
   { id: "about", label: "About", icon: User },
-  { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "certifications", label: "Certifications", icon: Award },
+  { id: "experience", label: "Journey", icon: Award },
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
