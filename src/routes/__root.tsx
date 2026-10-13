@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Button } from "@/components/ui/button";
+import ParticleDrift from "@/components/ui/particle-drift";
 
 function NotFoundComponent() {
   return (
@@ -139,8 +140,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60 dark:opacity-75">
+        <ParticleDrift
+          density={100}
+          speed={30}
+          dotSize={3.5}
+          linkDistance={130}
+          hover={160}
+        />
+      </div>
+      <div className="relative z-10 min-h-screen">
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
 }

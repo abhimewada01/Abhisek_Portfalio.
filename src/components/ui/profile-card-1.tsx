@@ -34,7 +34,7 @@ export interface GlassmorphismProfileCardProps {
 export function Component() {
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen p-4 font-sans bg-background transition-colors duration-500 sm:p-8 w-full">
+      <div className="flex items-center justify-center min-h-screen p-4 font-sans bg-transparent transition-colors duration-500 sm:p-8 w-full">
         <ProfileCardDemo />
       </div>
     </div>

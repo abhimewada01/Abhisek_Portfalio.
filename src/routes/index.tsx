@@ -45,7 +45,7 @@ function Index() {
   usePageLoadAnimation();
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-muted-foreground pb-24 md:pb-0 transition-colors duration-300">
+    <div className="relative min-h-screen overflow-x-hidden bg-transparent text-muted-foreground pb-24 md:pb-0 transition-colors duration-300">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[10px] focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
